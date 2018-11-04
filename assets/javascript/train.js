@@ -68,29 +68,31 @@ $("#add-train-btn").on("click", function (event) {
   // console.log(trainFrequency);
 
 var nextArrival = moment(currentTime).format("hh:mm");
-//////////////////////////////////////////////////////////// Assumptions
+
+// Assumptions
 var tFrequency = trainFrequency;
-/////////////////////////////////////////////////////////// Time is 3:30 AM
+
+// Time is 3:30 AM
 var firstTime = 0;
-/////////////////////////// First Time (pushed back 1 year to make sure it comes before current time)
+
+// First Time (pushed back 1 year to make sure it comes before current time)
 var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
 console.log(firstTimeConverted);
-///////////////////////////////////////////////////////////////// Current Time
+
+// Current Time
 var currentTime = moment();
 console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 ///////////////////////////////// Difference between the times
 var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
 console.log("DIFFERENCE IN TIME: " + diffTime);
-///////////////////////////////////////////////////////////////////// Time apart (remainder)
+
+// Time apart (remainder)
 var tRemainder = diffTime % tFrequency;
 console.log(tRemainder);
-///////////////////////////////////////////////////////////////////// Minute Until Train
+
+// Minute Until Train
 var trainMinutesAway = tFrequency - tRemainder;
 console.log("MINUTES TILL TRAIN: " + trainMinutesAway);
-//////////////////////////////////////////////////////////////////// Next Train
-//var nextArrival = moment().add(trainMinutesAway, "minutes");
-//var nextArrival = moment().add(currentTime, "minutes");
-//console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
 
   // Create the new row
   var newRow = $("<tr>").append(
