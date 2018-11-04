@@ -69,30 +69,31 @@ $("#add-train-btn").on("click", function (event) {
 
 var nextArrival = moment(currentTime).format("hh:mm");
 
-// Assumptions
-var tFrequency = trainFrequency;
+// First train departure time
+var firstTime = firstTrainTime;
 
-// Time is 3:30 AM
-var firstTime = 0;
+// Frequency of train departures
+var timeFrequency = trainFrequency;
 
 // First Time (pushed back 1 year to make sure it comes before current time)
 var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-console.log(firstTimeConverted);
+//console.log(firstTimeConverted);
 
 // Current Time
 var currentTime = moment();
-console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+//console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
 ///////////////////////////////// Difference between the times
 var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-console.log("DIFFERENCE IN TIME: " + diffTime);
+//console.log("DIFFERENCE IN TIME: " + diffTime);
 
 // Time apart (remainder)
-var tRemainder = diffTime % tFrequency;
-console.log(tRemainder);
+var timeRemainder = diffTime % timeFrequency;
+//console.log(timeRemainder);
 
 // Minute Until Train
-var trainMinutesAway = tFrequency - tRemainder;
-console.log("MINUTES TILL TRAIN: " + trainMinutesAway);
+var trainMinutesAway = timeFrequency - timeRemainder;
+//console.log("MINUTES TILL TRAIN: " + trainMinutesAway);
 
   // Create the new row
   var newRow = $("<tr>").append(
