@@ -12,3 +12,21 @@ h1, p {
     background-color: black;
     color: white;
 }
+
+#add-train-btn {
+    background-color: black;
+    font-weight: 700;
+}
+.card-header {
+    background-color: gray;
+    color: white;
+    font-weight: 700;
+}
+
+.card-body {
+    font-weight: 700;
+}
+
+tr {
+    font-weight: 700;
+}
